@@ -15,3 +15,5 @@ function tailFromServer() {
         $("#log").text(data);
     });
 }
+
+//git test
