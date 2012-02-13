@@ -3,6 +3,7 @@ import com.google.inject.Singleton;
 import org.mortbay.jetty.Handler;
 import org.mortbay.jetty.handler.HandlerList;
 import org.mortbay.jetty.handler.ResourceHandler;
+import org.mortbay.resource.Resource;
 
 /**
  * User: kzimnick
@@ -42,7 +43,17 @@ public class Server {
     private ResourceHandler prepareResourceHandler() {
         ResourceHandler resource_handler = new ResourceHandler();
         resource_handler.setWelcomeFiles(new String[]{"index.html"});
-        resource_handler.setResourceBase("./src/main/resources/");
+//        try {
+        resource_handler.setBaseResource(Resource.newClassPathResource("static"));
+//            System.out.println(new FileResource(Server.class.getResource("static")));
+//            URLResource res;
+//            res = new URLResource(Server.class.getResource("static")));
+//            resource_handler.setBaseResource(new FileResource(Server.class.getResource("static")));
+//        } catch (IOException e) {
+//            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+//        } catch (URISyntaxException e) {
+//            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+//        }
         return resource_handler;
     }
 

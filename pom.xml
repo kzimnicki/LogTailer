@@ -22,7 +22,15 @@
         </dependency>
     </dependencies>
 
+
     <build>
+
+        <resources>
+            <resource>
+                <directory>client</directory>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>

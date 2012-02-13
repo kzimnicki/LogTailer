@@ -12,7 +12,18 @@ function stop() {
 
 function tailFromServer() {
     $.get('/d', function(data) {
-        $("#log").text(data);
+
+        $("#log").append(data);
+        var textarea = $("#log");
+        var total = (textarea.text()
+            ? textarea.text() + "\n"
+            : "").split("\n");
+
+        var maxLines = 1000;
+        if (total.length > maxLines)
+            total = total.slice(total.length - maxLines);
+        textarea.text(total.join("\n"));
+        $("#log").scrollTop(99999);
     });
 }
 
